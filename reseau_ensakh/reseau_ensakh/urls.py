@@ -21,4 +21,5 @@ from publications import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('publications/', views.liste_publications, name='liste_publications'),
+    path('publications/<int:id>/', views.detail_publication, name='detail_publication'),
 ]

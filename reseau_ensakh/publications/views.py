@@ -7,3 +7,9 @@ def liste_publications(request):
     return render(request, 
                   'publications/liste_publications.html', 
                   {'publications': publications})
+
+def detail_publication(request, id):
+    publication = Publication.objects.get(id=id)
+    return render(request, 
+                  'publications/detail_publication.html', 
+                  {'publication': publication})

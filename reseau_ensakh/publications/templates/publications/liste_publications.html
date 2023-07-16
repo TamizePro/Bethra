@@ -2,11 +2,13 @@
 
 {% block contenu %}
     {% for publication in publications  %}
-        <ul>
-            <li>{{ publication.auteur.username | title}}</li>
-            <li>{{ publication.titre | title }}</li>
-            <li>{{ publication.description | title }}</li>
-            <li>{{ publication.date_heure_de_creation}}</li>
-        </ul>
+        <a href="{% url 'detail_publication' publication.id %}">
+            <ul>
+                <li>{{ publication.auteur.username | title}}</li>
+                <li>{{ publication.titre | title }}</li>
+                <li>{{ publication.description | title }}</li>
+                <li>{{ publication.date_heure_de_creation}}</li>
+            </ul>
+        </a>
     {% endfor %}
 {% endblock contenu %}

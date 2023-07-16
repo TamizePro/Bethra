@@ -1,0 +1,18 @@
+{% extends 'publications/base.html' %}
+
+{% block contenu %}
+    <ul>
+        <li>{{ publication.auteur.username | title}}</li>
+        <li>{{ publication.titre | title }}</li>
+        <li>{{ publication.description | title }}</li>
+        <li>{{ publication.date_heure_de_creation}}</li>
+    </ul>
+
+    <h2>Commentaires</h2>
+    
+    {% for commentaire in publication.commentaire_set.all %}
+        <p>{{ commentaire.texte }}</p>
+        <p>By {{ commentaire.auteur.username }}</p>
+    {% endfor %}
+        
+{% endblock contenu %}

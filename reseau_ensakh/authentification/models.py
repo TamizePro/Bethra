@@ -27,6 +27,8 @@ class Utilisateur(AbstractUser):
         DOCTORANT = 'D'
         AUCUN = None
     
+    
+    photo_de_profil = models.ImageField(upload_to='images/utilisateurs', null=True, blank=True)
     role = models.fields.CharField(choices=Role.choices, max_length=2)
     filiere = models.fields.CharField(choices=Filiere.choices, null=True, max_length=4)
     poste = models.fields.CharField(null=True, blank=True, max_length=30)
