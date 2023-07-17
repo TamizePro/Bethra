@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'annonces',
     'notifications',
     'reseau_personnel',
-    'profil_personnel',
     'recherches',
 ]
 

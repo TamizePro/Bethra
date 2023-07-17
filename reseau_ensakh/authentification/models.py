@@ -27,7 +27,8 @@ class Utilisateur(AbstractUser):
         DOCTORANT = 'D'
         AUCUN = None
     
-    
+    code_apogee = models.fields.CharField(null=True, blank=True, max_length=8)
+    CNE_ou_code_massar = models.fields.CharField(null=True, blank=True, max_length=10)
     photo_de_profil = models.ImageField(upload_to='images/utilisateurs', null=True, blank=True)
     role = models.fields.CharField(choices=Role.choices, max_length=2)
     filiere = models.fields.CharField(choices=Filiere.choices, null=True, max_length=4)
