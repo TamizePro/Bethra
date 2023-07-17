@@ -1,0 +1,9 @@
+{% extends 'annonces/base.html' %}
+
+{% block contenu %}
+    {% for annonce in annonces %}
+        <p>{{ annonce.titre }}</p>
+        <p>{{ annonce.description }}</p>
+    {% endfor %}
+{% endblock contenu %}
+    
