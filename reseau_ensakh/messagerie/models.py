@@ -1,4 +1,5 @@
 from django.db import models
+from authentification.models import Utilisateur
 
 class Message(models.Model):
     texte = models.CharField(max_length=1000, null=True, blank=True)
@@ -10,3 +11,5 @@ class Message(models.Model):
     message = models.OneToOneField('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='repondu_par')
     #Ce message est la réponse à un autre message ou
     # Ce message repond à un autre message
+    expediteur = models.ForeignKey(Utilisateur, on_delete=models.CASCADE, related_name='envoye_par')
+    destinataire = models.ForeignKey(Utilisateur, on_delete=models.CASCADE, related_name='recu_par')
