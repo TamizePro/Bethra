@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from publications import views as vues_publications
 from annonces import views as vues_annonces
+from messagerie import views as vues_messagerie
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('publications/', vues_publications.liste_publications, name='liste_publications'),
     path('publications/<int:id>/', vues_publications.detail_publication, name='detail_publication'),
     path('annonces/', vues_annonces.liste_annonces, name='liste_annonces'),
+    path('messagerie/<int:id>/', vues_messagerie.liste_messages, name='liste_messages'),
 ]

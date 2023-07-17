@@ -1,0 +1,9 @@
+{% extends 'messagerie/base.html' %}
+
+{% block contenu %}
+    {% for message in messages %}
+        <p>De: {{ message.expediteur.username }}</p>
+        <p>{{ message.texte }}</p>
+        <p>Vers: {{ message.destinataire.username }}</p>
+    {% endfor %}
+{% endblock contenu %}
