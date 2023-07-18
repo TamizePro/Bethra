@@ -1,5 +1,5 @@
 from django.db import models
-from authentification.models import Utilisateur
+from utilisateurs.models import Utilisateur
 
 class Annonce(models.Model):
     titre = models.TextField(max_length=50)

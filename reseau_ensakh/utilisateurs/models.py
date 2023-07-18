@@ -8,6 +8,7 @@ class Utilisateur(AbstractUser):
         PROFESSEUR = 'P'
         ENTREPRISE = 'EN'
         ADMINISTRATION = 'A' 
+        AUTRE = 'AU'
         #Pour un membre de l'administration de l'ENSA de Khouribga
     
     class Filiere(models.TextChoices):
@@ -16,7 +17,6 @@ class Utilisateur(AbstractUser):
         GENIE_DES_PROCEDEES_ENERGIE_ENVIRONNEMENT = 'GPEE'
         GENIE_INFORMATIQUE = 'GI'
         GENIE_ELECTRIQUE = 'GE'
-        AUCUNE = None
     
     class Niveau(models.TextChoices):
         PREMIERE_ANNEE = '1'
@@ -25,13 +25,12 @@ class Utilisateur(AbstractUser):
         QUATRIEME_ANNEE = '4'
         CINQUIEME_ANNEE = '5'
         DOCTORANT = 'D'
-        AUCUN = None
     
     code_apogee = models.fields.CharField(null=True, blank=True, max_length=8)
     CNE_ou_code_massar = models.fields.CharField(null=True, blank=True, max_length=10)
-    photo_de_profil = models.ImageField(upload_to='images/utilisateurs', null=True, blank=True)
+    photo_de_profil = models.ImageField(upload_to='fichiers/images/utilisateurs', null=True, blank=True)
     role = models.fields.CharField(choices=Role.choices, max_length=2)
-    filiere = models.fields.CharField(choices=Filiere.choices, null=True, max_length=4)
+    filiere = models.fields.CharField(choices=Filiere.choices, null=True, blank=True, max_length=4)
     poste = models.fields.CharField(null=True, blank=True, max_length=30)
     niveau = models.fields.CharField(choices=Niveau.choices, null=True, blank=True, max_length=30)
     connections = models.ManyToManyField('self', symmetrical=False)

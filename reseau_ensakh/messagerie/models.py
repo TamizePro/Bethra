@@ -1,5 +1,8 @@
 from django.db import models
-from authentification.models import Utilisateur
+from utilisateurs.models import Utilisateur
+
+# Il faut implémenter le cryptage des données des messages:
+# Le texte et les fichiers
 
 class Message(models.Model):
     # Contenu du message:
@@ -8,7 +11,6 @@ class Message(models.Model):
     fichier = models.FileField(upload_to='fichiers/messsagerie/', null=True, blank=True)
     
     # Indiquent que le message a été reçu ou vu
-    recu = models.BooleanField(default=False)
     vu = models.BooleanField(default=False)
     
     # La date de création du message

@@ -1,8 +1,8 @@
 from django.db import models
-from authentification.models import Utilisateur
+from utilisateurs.models import Utilisateur
 
 class Publication(models.Model):
-    titre = models.TextField(max_length=20)
+    titre = models.TextField(max_length=50)
     description = models.CharField(max_length=500, null=True, blank=True)
     image = models.ImageField(upload_to='images/publications', null=True, blank=True)
     video = models.FileField(upload_to='video/publications', null=True, blank=True)
