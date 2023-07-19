@@ -10,6 +10,11 @@ class Message(models.Model):
     texte = models.CharField(max_length=1000, null=True, blank=True)
     fichier = models.FileField(upload_to='fichiers/messsagerie/', null=True, blank=True)
     
+    # Indique si le message est visible pour l'expéditeur ou le destinataire
+    # Utile si l'un des utilisateurs veut supprimer un message uniquement de son coté
+    visible_pour_expediteur = models.BooleanField(default=True)
+    visible_pour_destinataire = models.BooleanField(default=True)
+    
     # Indiquent que le message a été reçu ou vu
     vu = models.BooleanField(default=False)
     

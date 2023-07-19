@@ -33,4 +33,6 @@ class Utilisateur(AbstractUser):
     filiere = models.fields.CharField(choices=Filiere.choices, null=True, blank=True, max_length=4)
     poste = models.fields.CharField(null=True, blank=True, max_length=30)
     niveau = models.fields.CharField(choices=Niveau.choices, null=True, blank=True, max_length=30)
+    
+    # L'ensemble d'utilisateurs liées à l'utilisateur actuel
     connections = models.ManyToManyField('self', symmetrical=False)

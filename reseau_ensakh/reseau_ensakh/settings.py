@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'messagerie',
     'annonces',
     'notifications',
-    'recherches',
 ]
 
 MIDDLEWARE = [

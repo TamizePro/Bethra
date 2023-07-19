@@ -19,6 +19,8 @@ from django.urls import path
 from publications import views as vues_publications
 from annonces import views as vues_annonces
 from messagerie import views as vues_messagerie
+from utilisateurs import views as vues_utilisateurs
+from notifications import views as vues_notifications
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +28,7 @@ urlpatterns = [
     path('publications/<int:id>/', vues_publications.detail_publication, name='detail_publication'),
     path('annonces/', vues_annonces.liste_annonces, name='liste_annonces'),
     path('messagerie/<int:id>/', vues_messagerie.liste_messages, name='liste_messages'),
+    path('mon_profil/<int:id>/', vues_utilisateurs.mon_profil, name='profil_personnel'),
+    path('mon_reseau/', vues_utilisateurs.mon_reseau, name='reseau_personnel'),
+    path('notifications/<int:id>/', vues_notifications.notifications, name='notifications'),
 ]
