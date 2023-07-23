@@ -1,5 +1,11 @@
-{% extends 'messagerie/base.html' %}
+{% extends 'utilisateurs/base.html' %}
 
 {% block contenu %}
+    <p>{{ message }}</p>
 
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Connectez vous">
+    </form>
 {% endblock contenu %}

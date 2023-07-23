@@ -30,5 +30,8 @@ urlpatterns = [
     path('messagerie/<int:id>/', vues_messagerie.liste_messages, name='liste_messages'),
     path('mon_profil/<int:id>/', vues_utilisateurs.mon_profil, name='profil_personnel'),
     path('mon_reseau/', vues_utilisateurs.mon_reseau, name='reseau_personnel'),
+    path('connexion/', vues_utilisateurs.connexion, name='connexion'),
+    path('deconnexion/', vues_utilisateurs.deconnexion, name='deconnexion'),
+    path('accueil/', vues_utilisateurs.page_d_accueil, name='accueil'),
     path('notifications/<int:id>/', vues_notifications.notifications, name='notifications'),
 ]

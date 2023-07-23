@@ -15,7 +15,7 @@ class Message(models.Model):
     visible_pour_expediteur = models.BooleanField(default=True)
     visible_pour_destinataire = models.BooleanField(default=True)
     
-    # Indiquent que le message a été reçu ou vu
+    # Indiquent que le message a été vu ou non
     vu = models.BooleanField(default=False)
     
     # La date de création du message

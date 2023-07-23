@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 class Utilisateur(AbstractUser):
+    # Il faut redéfinir les roles comme cça se fait normalement avec Django
     class Role(models.TextChoices):
         ELEVE = 'EL'
         ANCIEN_ELEVE = 'AE'
