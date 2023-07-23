@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect
 from utilisateurs.models import Utilisateur
 from utilisateurs.forms import FormulaireConnexion
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 
 
-
+@login_required
 def mon_profil(request, id):
     profil_personnel = Utilisateur.objects.get(id=id)
     return render(request, 
@@ -14,6 +15,7 @@ def mon_profil(request, id):
 
 # Il faut séparer les utilisateurs qui font partie du 
 # réseau de l'utilisateur et ceux qui n'en font pas partie
+@login_required
 def mon_reseau(request):
     utilisateurs = Utilisateur.objects.all()
     return render(request, 
@@ -41,7 +43,7 @@ def connexion(request):
             
             if user is not None:
                 login(request, user)
-                message = f'Bonjour, {user.username}! Vous êtes connecté.'
+                return redirect('liste_publications')
             else:
                 message = 'Identifiants invalides.'
 
@@ -50,6 +52,7 @@ def connexion(request):
                   context={'form': form, 'message': message})
 
 
+@login_required
 def deconnexion(request):
     logout(request)
     return redirect('accueil')

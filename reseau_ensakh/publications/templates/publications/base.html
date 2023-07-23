@@ -6,7 +6,10 @@
     <title>Bethra</title>
 </head>
 <body>
-    {% block contenu %}
-    {% endblock contenu %}
+    {% block contenu %}{% endblock contenu %}
+
+    {% if user.is_authenticated %}
+        <p>Vous êtes connecté en tant que {{ request.user }}. <a href="{% url 'deconnexion' %}">Se déconnecter</a></p>
+    {% endif %}
 </body>
 </html>
